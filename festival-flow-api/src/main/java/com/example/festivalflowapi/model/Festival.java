@@ -3,7 +3,7 @@ package com.example.festivalflowapi.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +26,7 @@ public class Festival {
     }
 
     @OneToMany(mappedBy = "festival")
+    @JsonIgnoreProperties("festival")
     List <Stage> stages = new ArrayList<>();
 
     public void setName(String name) {
@@ -39,6 +40,13 @@ public class Festival {
     }
     public String getLocation() {
         return location;
+    }
+    public Integer getId(){
+        return id;
+    }
+    public List<Stage> getStages(){
+        return this.stages;
+
     }
 
 

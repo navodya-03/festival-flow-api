@@ -35,6 +35,12 @@ public class Stage {
     public int getCapacity() {
         return capacity;
     }
+    public Festival getFestival() {
+        return festival;
+    }
+    public Integer getId() {
+        return id;
+    }
 
 
     
