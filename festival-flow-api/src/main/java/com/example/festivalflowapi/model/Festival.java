@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 public class Festival {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long festivalId;
+    Integer id;
     String name;
     String location;
 

@@ -1,4 +1,4 @@
-package com.service;
+package com.example.festivalflowapi.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.festivalflowapi.model.Festival;
-import com.example.repository.FestivalRepository;
+import com.example.festivalflowapi.repository.FestivalRepository;
 @Service
 public class FestivalService {
 
@@ -26,17 +26,17 @@ public class FestivalService {
         return festivalRepository.findAll();
     }
 
-    public Optional<Festival> getFestivalById(Long id){
+    public Optional<Festival> getFestivalById(Integer id){
         return festivalRepository.findById(id);
     }
 
-    public Festival updateFestival(Long id,Festival festivaldetails){
+    public Festival updateFestival(Integer id,Festival festivaldetails){
         Festival temp = festivalRepository.findById(id).orElseThrow(()-> new RuntimeException("Festival not found"));
         temp.setName(festivaldetails.getName());
         return festivalRepository.save(temp);     
     }
 
-    public void deleteFestival(Long id){
+    public void deleteFestival(Integer id){
 
         Festival temp  = festivalRepository.findById(id).orElseThrow(()-> new RuntimeException("Festival not found"));
         festivalRepository.delete(temp);

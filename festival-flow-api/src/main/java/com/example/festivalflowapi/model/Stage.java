@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class Stage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long stageId;
+    Integer id;
     String name;
     int capacity;
 
