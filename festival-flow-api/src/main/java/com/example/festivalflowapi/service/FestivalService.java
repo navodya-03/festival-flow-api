@@ -39,6 +39,7 @@ public class FestivalService {
     public void deleteFestival(Integer id){
 
         Festival temp  = festivalRepository.findById(id).orElseThrow(()-> new RuntimeException("Festival not found"));
+        festivalRepository.delete(temp);
 
 
     }
