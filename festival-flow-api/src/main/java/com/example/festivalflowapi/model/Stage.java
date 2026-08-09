@@ -41,6 +41,12 @@ public class Stage {
     public Integer getId() {
         return id;
     }
+    public void setFestival(Festival festival) {
+        this.festival = festival;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 
     
