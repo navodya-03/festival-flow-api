@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.festivalflowapi.dto.StageCreateRequest;
 import com.example.festivalflowapi.model.Stage;
 import com.example.festivalflowapi.service.StageService;
 
@@ -21,9 +22,9 @@ public class StageController {
 
     // 1. Create a Stage (POST http://localhost:8080/api/stages)
     @PostMapping
-    public ResponseEntity<Stage> createStage(@RequestBody Stage stage) {
+    public ResponseEntity<Stage> createStage(@RequestBody StageCreateRequest dto) {
         // @RequestBody tells Jackson to turn incoming JSON into the Stage object
-        Stage createdStage = stageService.createStage(stage);
+        Stage createdStage = stageService.createStage(dto);
         return new ResponseEntity<>(createdStage, HttpStatus.CREATED);
     }
 

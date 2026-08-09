@@ -2,12 +2,10 @@ package com.example.festivalflowapi.service;
 
 
 import java.util.List;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.example.festivalflowapi.dto.StageCreateRequest;
+import com.example.festivalflowapi.model.Festival;
 import com.example.festivalflowapi.model.Stage;
 import com.example.festivalflowapi.repository.StageRespository;
 @Service
@@ -23,8 +21,21 @@ public class StageService {
    
 
 
-    public Stage createStage(Stage stage){
+    public Stage createStage(StageCreateRequest dto){
+        
+        Stage stage = new Stage();
+
+        stage.setName(dto.getName());
+        stage.setCapacity(dto.getCapacity());
+
+        Festival temp = new Festival();
+
+        temp.setId(dto.getFestivalId());
+
+        stage.setFestival(temp);
+
         return stageRespository.save(stage);
+
     }
 
 

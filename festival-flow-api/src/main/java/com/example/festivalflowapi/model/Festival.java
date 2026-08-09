@@ -48,6 +48,9 @@ public class Festival {
         return this.stages;
 
     }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 
     
